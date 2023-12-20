@@ -1,0 +1,14 @@
+command /surelivipver [<player>] [<text>]:
+    trigger:
+        if player has permission "sureli.vip.ver":
+        permission message: "Bu komutu kullanmaya yetkiniz yoktur!"
+            if arg 1 is not set:
+                send "&6Komut Kullanımı: &e/surelivipver -nick- -vip-" to player
+                stop
+            if arg 2 is "vip":
+                send "&e%arg 1% &6isimli oyuncumuz &bVIP &6olmustur.." to player
+                send "&e%player% &6isimli yonetici kisi seni &bVIP &6ya" to player
+                execute console command "manuadd %arg 1% VIP"
+                wait 30 days // [B]Gün kısmı sunucudan sunucuya değişir[/B]
+                execute console command "manuadd %arg 1% Default"
+                send "&e%arg 1% &6isimli oyuncunun VIP süresi bitti." to player
